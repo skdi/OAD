@@ -1,0 +1,4 @@
+//deberia ser comentario
+no deberia ser comentario
+/*deberia ser comentario*/
+no deberia ser comentario
