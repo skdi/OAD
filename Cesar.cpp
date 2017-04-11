@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cctype>//header para funciones de clasificacion
 
 using namespace std;
 
