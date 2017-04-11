@@ -64,19 +64,20 @@ using namespace std;
             return (top == MAX_STACK_SIZE);
         }
 		
-
-		void Stack::Roll( )
+	//funcion del ejercicio ROLL
+		void Stack::Roll(int i)
 		{
 			if (top == 0)
-				cout << "Stack is empty, There are no elements to roll" << endl << endl;
+				cout << "pila vacia" << endl << endl;
 			else if (top == 1)
-				cout << "There is only one element in the stack, nothing to roll with" << endl << endl;
+				cout << "solo hay un elemento" << endl << endl;
 			else
 			{
 			int temp;
-			temp = elements[top-1];
-			elements[top-1] = elements[top-2];
-			elements[top-2] = temp;
+			//switch entre los elementos	
+			temp = elements[top-i];
+			elements[top-i] = elements[top-i-1];
+			elements[top-i-1] = temp;
 			PrintStack( );
 			}
 		}
