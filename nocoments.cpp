@@ -38,8 +38,8 @@ int main() {
     ifstream infile;
     ofstream outfile;
 
-    infile.open("C:/Users/Zero/Desktop/comments1.txt");
-    outfile.open("C:/Users/Zero/Desktop/comments2.txt");
+    infile.open("comments1.txt");
+    outfile.open("comments2.txt");
 
 
     removeComments(infile, outfile);
