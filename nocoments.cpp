@@ -2,55 +2,50 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
-#include "console.h"
-#include "filelib.h"
-#include "simpio.h"
-#include "error.h"
+
 
 using namespace std;
-
+//funcion de apoyo que eliminar los simbolos
 bool removeOccurance(string & str, string start, string end) {
-	int a, b;
-	if ((a = str.find(start)) != -1) {
-		if ((b = str.find(end, a)) != -1) {
-			str.erase(a, (b-a) + end.length());
-			return true;
-		}
-	}
-	return false;
+    int a, b;
+    if ((a = str.find(start)) != -1) {
+        if ((b = str.find(end, a)) != -1) {
+            str.erase(a, (b-a) + end.length());
+            return true;
+        }
+    }
+    return false;
 }
 
 void removeComments(istream & is, ostream & os) {
-	string text;
-	char ch;
-	while ((ch = is.get()) != EOF) {
-		if (is.fail()) break;
-		text += ch;
-	}
-	
-	while (removeOccurance(text, "/*", "*/"));
-	while (removeOccurance(text, "//", "\n"));
-	
-	os << text;
-	cout << text;
+    string text;
+    char ch;
+    while ((ch = is.get()) != EOF) {
+        if (is.fail()) break;
+        text += ch;
+    }
+
+    while (removeOccurance(text, "/*", "*/"));
+    while (removeOccurance(text, "//", "\n"));
+
+    os << text;
+    cout << text;
 }
 
 
-int main() { 
-	
-	ifstream infile; 
-	ofstream outfile; 
-	
-//	infile.open("in/comments.txt");
-//	outfile.open("out/comments.txt");	
-//	removeComments(infile, outfile);
-	
-	promptUserForFile(infile, "Input file: "); 
-	promptUserForFile(outfile, "Output file: "); 
-	removeComments(infile, outfile);
-	
-	infile.close();
-	outfile.close();
-	
-	return 0;
-} 
+int main() {
+
+    ifstream infile;
+    ofstream outfile;
+
+    infile.open("C:/Users/Zero/Desktop/comments1.txt");
+    outfile.open("C:/Users/Zero/Desktop/comments2.txt");
+
+
+    removeComments(infile, outfile);
+
+    infile.close();
+    outfile.close();
+
+    return 0;
+}
