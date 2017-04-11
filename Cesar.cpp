@@ -1,69 +1,59 @@
-#include "stdafx.h"
-#include <iostream> 
-#include <string> 
+#include <iostream>
+#include <string>
 
-using namespace std; 
+using namespace std;
 
-string encodeCaesarCipher(string str, int shift); 
+string cesar(string str, int shift);
 
 int main()
 {
-    string str, encoded_string;  
-    int shift; 
+    string str, encoded_string;  //creando los strings
+    int shift;//creando el shift
 
-    cout << "This program encodes a message in Caesar Cipher. \n\n"; 
 
-    cout << "Please enter a message: "; 
-    getline(cin, str);  
+    cout << "ingrese el mensaje "<<endl;
+    getline(cin, str);  //ingreso el texto en mi string
 
-    cout << "\nHow many times do you want to shift the letter(s) in the message? ";
-    cin >> shift; 
+    cout << "\n ingrese el shift ";
+    cin >> shift; //guardo el valor del shift
 
-    while (shift < 1)
-    {
-        cout << "You have entered an invalid number. \n"; 
-        cout << "Please try again. \n"; 
-        cout << "Enter a proper number for the amount of letter shifting: "; 
-        cin >> shift; 
-    }
+    encoded_string = cesar(str, shift); //paso los parametros a la funcion y lo guardo en un
+    //segundo string
 
-    encoded_string = encodeCaesarCipher(str, shift); 
-
-    cout << "\nEncoded message: " << encoded_string << "\n\n"; 
-
-    system("PAUSE"); 
+    cout << "\n mensaje secreto: " << encoded_string << "\n\n";
 
     return 0;
 }
 
-string encodeCaesarCipher(string str, int shift)
+string cesar(string str, int shift)
 {
-    string temp = str; 
-    int length; 
+    string temp = str; //creo una copia de mi string
+    int length; //int de longitud
 
-    length = (int)temp.length(); 
+    length = (int)temp.length();
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < length; i++)//recorro todo el string
     {
-        if (isalpha(temp[i]))
+        if (isalpha(temp[i]))//isalpha es una macro que verifica 
+            //el entero c pertenece al rango de letras (A a Z o a a z),
         {
             for (int j = 0; j < shift; j++)
             {
-                if (temp[i] == 'z')
+                if (temp[i] == 'z')//conservacion de minisculas
                 {
-                    temp[i] = 'a'; 
+                    temp[i] = 'a';
                 }
-                else if (temp[i] == 'Z')
+                else if (temp[i] == 'Z')//conservacion de mayus
                 {
-                    temp[i] = 'A'; 
+                    temp[i] = 'A';
                 }
-                else 
+                else
                 {
-                    temp[i]++; 
+                    temp[i]++;//actualizando posicion
                 }
             }
         }
     }
 
-    return temp; 
+    return temp;//retorno el string cambiado(la copia).
 }
