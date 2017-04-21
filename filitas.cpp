@@ -50,4 +50,11 @@ void cripto::getclave(){
 cripto::cripto(int clave1){
     setclave(clave1);
 }
+string cripto::codifica(string mensaje){
+  //funcion de codificado
+}
+string cripto::decodifica(string mensaje){
+  //funcion de decodificado
+}
+
 
