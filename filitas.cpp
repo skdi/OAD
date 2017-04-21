@@ -13,12 +13,12 @@ class cripto{
     string mensaje="";
   public:
     string alfabeto="abcdefghijklmnopqrstuvwxyz ";
-    cripto(int clave);
-    bool validarclave(int clave);
+    cripto(int clave1);
+    bool validarclave(int clave1);
     bool validarmensaje(string mensaje);
     string codifica(string mensaje);
     string decodifica(string mensaje);
-    void setclave();
+    void setclave(int clave1);
     int getclave();
     
 };
@@ -38,5 +38,16 @@ bool cripto::validarmensaje(string mensaje){
   if(!mensaje)
     return false;
   else return true;
+}
+void cripto::setclave(int clave1){
+  if(validarclave(clave1))
+    clave=clave1;
+}
+void cripto::getclave(){
+  return clave;
+}
+
+cripto::cripto(int clave1){
+    setclave(clave1);
 }
 
