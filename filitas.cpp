@@ -9,9 +9,14 @@ using namespace std;
 
 class cripto{
   private:
-    int clave="";
+    int clave=0;
+    string mensaje="";
   public:
-    cripto(string mensaje,int clave);//genera clave
-    cripto(string mensaje,int clave);//recibe clave
     string alfabeto="abcdefghijklmnopqrstuvwxyz ";
+    cripto(int clave);//genera clave
+    string codifica(string mensaje);
+    string decodifica(string mensaje);
+    void setclave();
+    int getclave();
+    
 }
