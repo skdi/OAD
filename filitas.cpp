@@ -10,7 +10,6 @@ using namespace std;
 class cripto{
   private:
     int clave=0;
-    string mensaje="";
   public:
     string alfabeto="abcdefghijklmnopqrstuvwxyz ";
     cripto(int clave1);
