@@ -14,6 +14,7 @@ class cripto{
   public:
     string alfabeto="abcdefghijklmnopqrstuvwxyz ";
     cripto(int clave1);
+    cripto();
     bool validarclave(int clave1);
     bool validarmensaje(string mensaje);
     string codifica(string mensaje);
@@ -50,6 +51,9 @@ void cripto::getclave(){
 cripto::cripto(int clave1){
     setclave(clave1);
 }
+cripto::cripto(){
+  printf("clave guardada\n");
+}
 string cripto::codifica(string mensaje){
   //funcion de codificado
 }
@@ -57,4 +61,21 @@ string cripto::decodifica(string mensaje){
   //funcion de decodificado
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////
+//main main.cpp
+/////////////////////////////////////////////////////////////////////////////////////////
 
+#include "cripto.h"
+
+void main(){
+  
+  cripto emisor(3);
+  string mensaje="holi boli";
+  string mensajecifrado=emisor.codificica(mensaje);
+  cout<<mensajecifrado<<endl;
+  cripto receptor();
+  string mensajedecodificado=receptor.decodificar(mensajecifrado);
+  cout<<mensajedecodificado<<endl;
+  
+  
+}
