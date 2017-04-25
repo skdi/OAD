@@ -44,3 +44,15 @@ sudo apt-get install isc-dhcp-client
 -abrir configuraciones colocar internal network
 -iniciar MV probar conf de ip (ifconfig)
 -en el servidor :	cat /var/lab/dhcp/dhcpd.leases
+
+
+
+PRACTICA
+
+realizar un video
+de la configuracion de un servidor  DHCP en ubuntu
+(de la forma trabajada)
+	-configuracion de interfaces
+	-configuracion de DHCP
+	-subir servicio
+	-probar cliente
