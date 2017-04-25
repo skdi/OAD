@@ -30,3 +30,17 @@ nuestra subnet 192.168.2.0 netmask 255.255.255.0 LLAVE
 (fuera)dhcpd -t //comprobar si esta bien
 sudo /etc/default/isc-dhcp-server
 INTERFACES="enp0s8"
+sudo service isc-dhcp-server start
+				stop
+				restart
+				status
+
+
+todos los servicios estan en ..... /etc/inited/
+
+PROBAR
+sudo apt-get install isc-dhcp-client
+-cerrar MV
+-abrir configuraciones colocar internal network
+-iniciar MV probar conf de ip (ifconfig)
+-en el servidor :	cat /var/lab/dhcp/dhcpd.leases
