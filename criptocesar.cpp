@@ -21,12 +21,12 @@ class cripto{
     string decodifica(string mensaje);
     void setclave(int clave1);
     int getclave();
-    int buscar(char mensaje);
 };
 
 
 
 #endif // CRIPTO_H
+
 ///////////////////////////////////////////////////////////////////////////
 #include "cripto.h"
 
@@ -54,27 +54,21 @@ int cripto::getclave(){
 }
 
 string cripto::codifica(string mensaje){
-    string temp;
+    string temp=mensaje;
     for(unsigned int i=0;i<mensaje.length();i++){
-        temp.append(alfabeto[(buscar(mensaje[i])-this->clave) % alfabeto.length()]);
+        temp[i]+=clave%alfabeto.length();
     }
     return temp;
 }
 
 string cripto::decodifica(string mensaje){
-    string temp;
-    for(int i=0;mensaje.length();i++){
-        temp[i]=alfabeto[(buscar(mensaje[i])+this->clave)%alfabeto.length()];
+    string temp=mensaje;
+    for(unsigned int i=0;i<mensaje.length();i++){
+        temp[i]-=clave%alfabeto.length();
     }
     return temp;
+}
 
-}
-int cripto::buscar(char mensaje){
-    for(unsigned int i=0;i<alfabeto.length();i++){
-        if(alfabeto[i]=mensaje)
-            return i;
-    }
-}
 
 ///////////////////////////////
 #include "cripto.h"
@@ -84,11 +78,11 @@ using namespace std;
 int main(){
 
   cripto *emisor=new cripto(3);
-  //cripto emisor(3);
-  string mensaje="algunmensaje";
+  string mensaje="hola como va todo";
+  cout<<mensaje<<endl;
   string mensajecifrado=emisor->codifica(mensaje);
   cout<<mensajecifrado<<endl;
-  cripto *receptor=new cripto();
+  cripto *receptor=new cripto(3);
   string mensajeplano=receptor->decodifica(mensajecifrado);
   cout<<mensajeplano<<endl;
   return 0;
