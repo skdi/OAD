@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <NTL/ZZ.h>
 
 NTL_CLIENT
@@ -20,14 +21,17 @@ ZZ mcd(ZZ m, ZZ n)
         m=n;//reasigno las variablescout << c << "\n";
         n=r;
     }
-    return(m);/*m es el ultimo resto no nulo*/
+    return m;/*m es el ultimo resto no nulo*/
 }
 
 
 
 int main()
 {
-    cout<<mcd(100,2000000);
+    ZZ a=mcd(ZZ(7),ZZ(8));
+    printf("%ZZ",a);
+
+
 
 
     return 0;
