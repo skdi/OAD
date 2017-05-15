@@ -50,9 +50,12 @@ void concatena(nodo *a,nodo*b){
 }
 
 void imprime(nodo *lista){
-    if(lista->next!=NULL){
+    if(lista->next==NULL){//ultimo
         cout<<lista->valor;
+    }
+    else{
         imprime(lista->next);
+        cout<<" "<<lista->valor;
     }
 }
 
