@@ -41,35 +41,19 @@ nodo* ultimo(nodo *lista){
 
 }
 
-nodo *concatena(nodo *a,nodo*b){
-    while(a!=NULL){
+void concatena(nodo *a,nodo*b){
+    while(a->next!=NULL){
         a=a->next;
     }
     a->next=b;
-    return a;
+
 }
 
 void imprime(nodo *lista){
-    int temp[10];
-    int i=0;
-    while(lista!=NULL){
-        temp[i]=lista->valor;
-        lista=lista->next;
-        i++;
+    if(lista->next!=NULL){
+        cout<<lista->valor;
+        imprime(lista->next);
     }
-    while(i>0){
-        cout<<temp[i];
-        i--;
-    }
-
-
-}
-void imprimir(nodo *lista){
-
-    nodo *i=new nodo();
-    for(i=lista;i!=NULL;i=i->next)
-        cout<<i->valor;
-
 }
 
 
@@ -87,7 +71,7 @@ int main()
     result->valor=2;
     cout<<suma(result)<<endl;
     ///////////////////////////////////
-    imprimir(result);
+    imprime(result);
 
     return 0;
 }
