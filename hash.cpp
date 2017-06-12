@@ -80,21 +80,14 @@ hash::hash(int key, int value){
 
 void hashmap::put(int key, int value){
     int hash1=key%TABLE_SIZE;
-    int cont=0;
     if(table[hash1]==NULL){
         table[hash1]=new hash(key,value);
         return;
-    }else{
-        while(cont<=hash1){//recorrido hasta la posicion del hash
-            table[hash1]=table[hash1]->getnext();
-            cont++;
-        }
-
-        hash *nuevo=new hash(key,value);
-        table[hash1]->set_next(nuevo);
-    }
+    }else
+        table[hash1]->set_next(new hash(key,value));
 
 }
+
 
 void hashmap::remove(int key){
     int hash1=key%TABLE_SIZE;
