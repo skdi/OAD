@@ -13,7 +13,7 @@ void listae::insert(int index, int value){
     nodo *temp=new nodo(value);
     nodo *sig=new nodo();
     int cont=0;
-    if(index>=0 && index<n){
+    if(index>=0){
         if(isEmpty())
             head->dato=value;
         else{
@@ -62,10 +62,10 @@ int listae::contar_duplicados(){
 }
 
 nodo* listae::sluter(){
-    nodo *temp=new nodo();
+    
     nodo *temp2=new nodo();
     while(head->next!=NULL){
-        temp->dato=head->dato;//duplico el dato
+        nodo *temp=new nodo(head->dato);//duplico el dato
         temp2=head->next;//guardo la sig posicion de head
         head->next=temp;//apunto head a mi dato duplicado
         temp->next=temp2;//apunto mi duplicado a la sig direccion de head
@@ -80,7 +80,7 @@ nodo *listae::sort(){
     nodo *temp=new nodo();
     while(head->next!=NULL){
         temp=head->next;//guardo la siguiente posicion
-        if((head->dato>temp->dato)&& head->dato<0){//comparo si mi posicion es menor que la sig
+        if(temp->dato<0){//comparo si mi posicion es menor que la sig
             swap(head,temp);//y ademas es negativa entonce intercambio valores
         }
         head=head->next;
