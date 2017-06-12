@@ -76,31 +76,22 @@ nodo* listae::sluter(){
 
 }
 
+
 nodo *listae::sort(){
     nodo *temp=new nodo();
+    nodo *temp2=head;//copio la primera posicon
     while(head->next!=NULL){
         temp=head->next;//guardo la siguiente posicion
-        if(temp->dato<0){//comparo si mi posicion es menor que la sig
-            swap(head,temp);//y ademas es negativa entonce intercambio valores
-        }
-        head=head->next;
-    }
-    return head;
-
-}
-
-
-nodo *listae::sort(){
-    nodo *temp=new nodo();
-    nodo *temp2=head;
-    while(head->next!=NULL){
-        temp=head->next;
-        if(temp->dato<0 && temp2->dato>=0{
-            swap(temp,temp2);
+        if(temp2->valor<0)
             temp2=temp2->next;
+        
+        if(temp->dato<0 && temp2->dato>=0){// si mi siguiente valor es negativo y mi primera poisicion libre es positiva
+            swap(temp,temp2);//cambio sus valores
+            temp2=temp2->next;//apunto a la siguiente direccion
         }
            head=head->next;
     }
+    return head;
 }
 
 void listae::swap(nodo *a, nodo *b){
