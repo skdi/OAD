@@ -24,6 +24,7 @@ void listae::insert(int index, int value){
             sig=head->next;//guardo la sig posicion
             head->next=temp;//apunto head al nodo nuevo
             temp->next=sig;//apunto el nodo nuevo a la sig posicion
+            n++;
     }
     }
     else return;
@@ -36,7 +37,7 @@ bool listae::isEmpty() const{
 }
 
 
-int listae::size(){
+int listae::size() const{
     int cont=1;
     nodo *temp=new nodo();
     temp=head;
@@ -44,7 +45,7 @@ int listae::size(){
         cont++;
         temp=temp->next;
     }
-    n=cont;
+    return cont;
 
 }
 
@@ -70,6 +71,7 @@ nodo* listae::sluter(){
         temp->next=temp2;//apunto mi duplicado a la sig direccion de head
         head=head->next->next;//actualizo posicion saltandome un espacio(del duplicado)
     }
+    n*=2;
     return head;
 
 }
@@ -105,6 +107,14 @@ void listae::imprimir() const{
 
 }
 
+
+
+
+
+
+
+
+
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 #include <iostream>
@@ -123,10 +133,10 @@ struct nodo{
         this->dato=dat;
         this->next=NULL;
     }
-    nodo(int dat,nodo* sig){
+    /*nodo(int dat,nodo* sig){
         this->dato=dat;
         this->next=sig;
-    }
+    }*/
 };
 
 
@@ -140,7 +150,7 @@ public:
     void insert(int index,int value);
     bool isEmpty() const;
     void remove(int index);
-    int size();
+    int size() const;
     int contar_duplicados();
     nodo *sluter();
     nodo *sort();
@@ -165,17 +175,17 @@ int main(){
     lista->insert(1,-5);
     lista->insert(2,4);
     lista->insert(3,-1);
-    cout<<"duplicados: "<<lista->contar_duplicados()<<endl;
+    lista->imprimir();
     lista->sluter();
     lista->imprimir();
     lista->sort();
     lista->imprimir();
+    cout<<"duplicados: "<<lista->contar_duplicados()<<endl;
 
 
     cout << "Hello World!" << endl;
     return 0;
 }
-
 
 
 
