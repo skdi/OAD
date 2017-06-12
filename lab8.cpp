@@ -89,6 +89,20 @@ nodo *listae::sort(){
 
 }
 
+
+nodo *listae::sort(){
+    nodo *temp=new nodo();
+    nodo *temp2=head;
+    while(head->next!=NULL){
+        temp=head->next;
+        if(temp->dato<0 && temp2->dato>=0{
+            swap(temp,temp2);
+            temp2=temp2->next;
+        }
+           head=head->next;
+    }
+}
+
 void listae::swap(nodo *a, nodo *b){
     nodo *temp=new nodo();
     temp->dato=a->dato;
